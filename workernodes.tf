@@ -25,7 +25,7 @@ resource "aws_launch_template" "eks_self_managed_nodes" {
       volume_type = var.ebs_volume_type
     }
   }
-  user_data = base64encode(templatefile("${path.module}/user_data.sh", {
+  user_data = base64encode(templatefile("${path.module}/userdata.sh", {
     cluster_name = var.eks_cluster_name
     node_labels  = var.node_labels
   }))
